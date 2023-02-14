@@ -39,6 +39,8 @@ tf.tidy(() => {
     [1, 1, 0, 0, 0, 0],
   ]);
 
+  tf.flatten(user_votes).print();
+  
   // User's favorite styles
   const user_feats = tf.matMul(user_votes, band_feats);
   // Print the answers

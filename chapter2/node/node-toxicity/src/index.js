@@ -6,10 +6,14 @@ import * as toxicity from '@tensorflow-models/toxicity'
 const threshold = 0.5
 
 toxicity.load(threshold).then((model) => {
-  const sentences = ['You are a poopy head!', 'I like turtles', 'Shut up!']
+  const sentences = ['You are an very large, and remembered idiot !']
 
   model.classify(sentences).then((predictions) => {
+    // filter
+    const filteredPrediction = predictions.filter(obj => obj.label.includes("insult"));
+
+
     // semi-pretty-print results
-    console.log(JSON.stringify(predictions, null, 2))
+    console.log(JSON.stringify(filteredPrediction, null, 2))
   })
-})
+}) 
